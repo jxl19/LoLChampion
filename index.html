@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>league</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous">
+      <link rel="stylesheet" href="main.css">
+</head>
+<!-- give each section a name -->
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand col-xs-6 col-md-2" href="#">Champion Skins</a>
+      <form class="js-search-form">
+        <div class="col-xs-6 col-md-8 col-md-offset-2 col-xs-offset-0">
+          <div class="form-group">
+            <div class="col-xs-12 col-md-6 col-xs-offset-0 col-xs-offset-1">
+              <div class="input-group">
+                <input type="text" class="form-control js-query" placeholder="Search for champion">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-search"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+        <!-- make this refresh page -->
+      </div>
+    </div>
+  </nav>
+
+
+  <section>
+    <p class = "hidden">Skin Name</p>
+  <div class="row col-xs-9 col-xs-offset-1 col-md-offset-0">
+    <div class="navbar col-xs-12 col-xs-offset-1 col-md-offset-3">
+      <ul class="nav navbar-nav js-search-results col-xs-12">
+      </ul>
+      <select class = "col-xs-12" id = "skins">
+      </select>
+    </div>
+  </div>
+</section>
+
+
+  <section class="row col-xs-8 col-xs-offset-2">
+    <div class="js-splash col-xs-12">
+    </div>
+  </section>
+
+  <section class="row col-xs-8 col-xs-offset-2">
+    <div class="panel-group">
+      <div class="panel panel-default js-video">
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <div>
+            <iframe width="100%" height="350" src=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
