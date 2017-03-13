@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Corbert-Regular;
+    src: url(Corbert-Regular.otf);
+}
+
 body {
   background-color:#F5F5F5	;
   padding-bottom: 70px;
@@ -5,14 +10,6 @@ body {
 
 p{
   text-align: center;
-}
-.splash{
-  height:100%;
-  width:100%;
-  display: block;
-  border-radius:4px;
-  margin-top:10px;
-  margin-bottom:10px;
 }
 
 .input-group-addon{
@@ -24,11 +21,40 @@ p{
   border-top-left-radius:4px;
   border-top-right-radius:4px;
 }
-
+.divider {
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+}
+.splashImg{
+  height:100%;
+  width:100%;
+  display: block;
+  border-radius:4px;
+  margin-top:10px;
+  margin-bottom:20px;
+}
 .panel{
   border:0;
   box-shadow: none;
   background-color:#F5F5F5;
+}
+
+.splashart, .youtubevid{
+  text-align:center;
+  font-family: Corbert-Regular;
+  font-size:20px;
+  font-weight:900;
+}
+
+.input-group{
+  margin-top:8px;
+}
+
+.show{
+  display:block!important;
+  font-family: Corbert-Regular;
+  font-size:20px;
+  font-weight:900;
 }
 
 li.skinName{    
@@ -43,13 +69,7 @@ li.skinName{
     box-sizing: border-box;
     transition: all 500ms ease;
     margin-bottom:1px;
-    }
-
-.skins{
-  text-align: center;
-  vertical-align: middle;
 }
-
 
 li:hover {
 	background: rgba(0,0,0,0);
@@ -61,14 +81,6 @@ li:hover {
 
 li:after,li:before {
    content: "\00a0";
-}
-
-.input-group{
-  margin-top:8px;
-}
-
-.show{
-  display:block!important;
 }
 
 select{
