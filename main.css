@@ -96,3 +96,41 @@ select{
     display:block;
   }
 }
+
+/*.pattern-container {
+    position: relative;
+    border: 1px solid #ccc;
+    height: 220px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+.pattern-info {
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    padding: 12px;
+    width: 100%;
+    
+}
+
+h4 {
+  text-align:center;
+}*/
+
+#profile-grid { overflow: auto; white-space: normal; }
+#profile-grid .profile { padding-bottom: 40px; }
+#profile-grid .panel { padding: 0 }
+#profile-grid .panel-body { padding: 15px }
+#profile-grid .profile-name { font-weight: bold; }
+#profile-grid .thumbnail {margin-bottom:6px;}
+#profile-grid .panel-thumbnail { overflow: hidden; }
+#profile-grid .img-rounded { border-radius: 4px 4px 0 0;}
+
+div.panel-body{
+  border-bottom-left-radius:6px;
+  border-bottom-right-radius:6px;
+  border:1px solid black;
+}

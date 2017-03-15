@@ -26,7 +26,7 @@ function getDataFromYoutubeApi(searchTerm, callback) {
 //put the URLs in a state object, and currentskin
 
 function firstLetterUppercase(str) {
-  var splitStr = str.toLowerCase().split(' '); 
+  var splitStr = str.toLowerCase().split(' ');
   var arr = [];
 
   for (i = 0; i < splitStr.length; i++) {
@@ -35,24 +35,28 @@ function firstLetterUppercase(str) {
   // word.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
   return arr.join(' ');
 }
-function displaySkinName(obj) { 
-  var resultElement = '';
+function displaySkinName(obj) {
+  //var resultElement = '';
   var optionElement = '';
+  var cardElement = '';
   var userInput = $('input.js-query').val(); //put in state
   userInput = firstLetterUppercase(userInput);
 
   for (var i in obj.data) {
     if (obj.data[i].name === userInput) {
       for (var y = 1; y < obj.data[i].skins.length; y++) {
-          resultElement +=
-            '<li class = "skinName col-xs-12 col-md-2" value =' + y + '>' + obj.data[i].skins[y].name + '</li>';
-          optionElement +=
-            '<option class = "skinName" value =' + y + '>' + obj.data[i].skins[y].name + '</option>';
-        }
+        // resultElement +=
+        //   '<li class = "skinName col-xs-12 col-md-2" value =' + y + '>' + obj.data[i].skins[y].name + '</li>';
+        optionElement +=
+          '<option class = "skinName" value =' + y + '>' + obj.data[i].skins[y].name + '</option>';
+        cardElement +=
+        '<div class = "col-md-3 col-xs-12 profile"><div class = "panel panel-default"><div class="panel-thumbnail"><a href= "#" title ="'+obj.data[i].skins[y].name+'" class ="thumb"><img src = "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + obj.data[i].key + '_' + y + '.jpg" class = "img-responsive img-rounded" data-toggle ="modal" data-target = ".modal-profile-lg"></a></div><div class = "panel-body"><p class ="profile-name" value =' + y + '>'+  obj.data[i].skins[y].name +'</p></div></div></div>' ;
       }
     }
-  $('.js-search-results').html(resultElement);
+  }
+  //$('.js-search-results').html(resultElement);
   $('select').html(optionElement);
+   $('div.panels').html(cardElement);
 }
 
 function renderSplashArt(obj) {
@@ -60,7 +64,7 @@ function renderSplashArt(obj) {
   var userInput = $('input.js-query').val();
   userInput = firstLetterUppercase(userInput);
   for (var i in obj.data) {
-    if (obj.data[i].name === userInput) {  
+    if (obj.data[i].name === userInput) {
       for (var y = 1; y < obj.data[i].skins.length; y++) {
         if (y == state.currentSkin) { //refractor!!
           resultElement +=
@@ -121,17 +125,16 @@ function watchSubmit() {
   });
 }
 
-//https://jsbin.com/qiyuheloho/edit?html,css,output
+// $('.js-search-results').on('click', '.skinName', function (e) {
+//   $('.js-splash').empty();
+//   $('.js-video').empty();
+//   $('.js-splash').addClass('divider');
+//   var chosenSkin = $(this).text();
+//   searchSkins(chosenSkin + " League of Legends skin spotlight");
+//   getDataFromLeagueApi(chosenSkin, renderSplashArt);
+//   state.currentSkin = $(this).val();
+// });
 
-$('.js-search-results').on('click', '.skinName', function (e) {
-  $('.js-splash').empty();
-  $('.js-video').empty();
-  $('.js-splash').addClass('divider');
-  var chosenSkin = $(this).text();
-  searchSkins(chosenSkin + " League of Legends skin spotlight");
-  getDataFromLeagueApi(chosenSkin, renderSplashArt);
-  state.currentSkin = $(this).val();
-});
 
 $('#skinOptions').on('change', function () {
   $('.js-splash').empty();
@@ -150,10 +153,20 @@ $('.panel').on('click', '.youtubeLink', function (e) {
 
 watchSubmit();
 
-// $('.js-query').keydown(function () {
-//   console.log("key is down!");
-//   $('.js-search-form').css({ position: 'absolute' }).animate({
-//     bottom: 158
-//   });
-//   $('.box').addClass("removeImage");
-// });
+
+$('.panels').on('click','a.thumb',function(event){
+    	event.preventDefault();
+      console.log('thumb clicked');
+    	var content = $('.modal-body');
+    	content.empty();
+      	var title = $(this).attr("title");
+      	$('.modal-title').html(title);      	
+      	content.html($(this).html());
+      	$(".modal-profile").modal({show:true});
+});
+
+//landing page
+//https://jsbin.com/qiyuheloho/edit?html,css,output buttons
+//https://land-book.com/gallery/landings
+
+// inside the modal make arrows and a button that removes splash and shows video

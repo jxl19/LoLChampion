@@ -11,43 +11,44 @@
       crossorigin="anonymous">
       <link rel="stylesheet" href="main.css">
 </head>
-<!-- give each section a name -->
 
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand col-xs-6 col-md-2" href="#">Champion Skins</a>
-      <form class="js-search-form">
-        <div class="col-xs-6 col-md-8 col-md-offset-2 col-xs-offset-0">
-          <div class="form-group">
-            <div class="col-xs-12 col-md-6 col-xs-offset-0 col-xs-offset-1">
-              <div class="input-group">
-                <input type="text" class="form-control js-query" placeholder="Search for champion">
-                <div class="input-group-addon">
-                  <i class="glyphicon glyphicon-search"></i>
+        <form class="js-search-form">
+          <div class="col-xs-6 col-md-8 col-md-offset-2 col-xs-offset-0">
+            <div class="form-group">
+              <div class="col-xs-12 col-md-6 col-xs-offset-0 col-xs-offset-1">
+                <div class="input-group">
+                  <input type="text" class="form-control js-query" placeholder="Search for champion">
+                  <div class="input-group-addon">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
       </div>
     </div>
   </nav>
 
   <section>
-    <p class = "hidden">Skin Name</p>
-  <div class="row col-xs-9 col-xs-offset-1 col-md-offset-0">
-    <div class="navbar col-xs-12 col-xs-offset-1 col-md-offset-3">
-      <ul class="nav navbar-nav js-search-results col-xs-12">
-      </ul>
-      <select class = "col-xs-12" id = "skinOptions">
-      </select>
-    </div>
-  </div>
-</section>
+    <p class="hidden">Skin Name</p>
+    <div class="row col-xs-9 col-xs-offset-1 col-md-offset-0">
+      <div class="navbar col-xs-12 col-xs-offset-1 col-md-offset-2">
+        <!--<ul class="nav navbar-nav js-search-results col-xs-12">
+        </ul>-->
+        <!--<select class="col-xs-12" id="skinOptions">
+      </select>-->
+        <div class="boxed">
 
+          <div class="container-fluid">
+            <div class="row panels" id="profile-grid">
+
+  </section>
 
   <section class="row col-xs-8 col-xs-offset-2">
     <div class="js-splash col-xs-12">
@@ -60,7 +61,7 @@
       </div>
     </div>
   </section>
-
+ <!--modal youtube 
   <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -72,8 +73,23 @@
         </div>
       </div>
     </div>
-  </div>
-
+  </div>-->
+<!-- modal cards -->
+	<div class="modal fade modal-profile" tabindex="-1" role="dialog" aria-labelledby="modalProfile" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" type="button" data-dismiss="modal">×</button>
+						<h3 class="modal-title"></h3>
+					</div>
+					<div class="modal-body">
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
