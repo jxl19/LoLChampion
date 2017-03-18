@@ -3,30 +3,24 @@
 
 <head>
   <meta charset="utf-8">
-  <title>league</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
+  <title>LolSkinSearch</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-      crossorigin="anonymous">
-      <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Skranji" rel="stylesheet">
 </head>
 
 <body>
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand col-xs-6 col-md-2" href="#">Champion Skins</a>
-        <form class="js-search-form">
-          <div class="col-xs-6 col-md-8 col-md-offset-2 col-xs-offset-0">
-            <div class="form-group">
-              <div class="col-xs-12 col-md-6 col-xs-offset-0 col-xs-offset-1">
-                <div class="input-group">
-                  <input type="text" class="form-control js-query" placeholder="Search for champion">
-                  <div class="input-group-addon">
-                    <i class="glyphicon glyphicon-search"></i>
-                  </div>
-                </div>
+    <div class="container-fluid col-xs-offset-1">
+      <div class="navbar-header col-xs-12">
+        <a class="navbar-brand col-xs-6" href="#">LoLSkinSearch</a>
+        <form class="js-search-form navbar-right col-xs-6 col-xs-pull-1">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control js-query" placeholder="Search for champion">
+              <div class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
               </div>
             </div>
           </div>
@@ -35,66 +29,45 @@
     </div>
   </nav>
 
-  <section>
-    <p class="hidden">Skin Name</p>
-    <div class="row col-xs-9 col-xs-offset-1 col-md-offset-0">
-      <div class="navbar col-xs-12 col-xs-offset-1 col-md-offset-2">
-        <!--<ul class="nav navbar-nav js-search-results col-xs-12">
-        </ul>-->
-        <!--<select class="col-xs-12" id="skinOptions">
-      </select>-->
-        <div class="boxed">
-
-          <div class="container-fluid">
-            <div class="row panels" id="profile-grid">
-
-  </section>
-
-  <section class="row col-xs-8 col-xs-offset-2">
-    <div class="js-splash col-xs-12">
-    </div>
-  </section>
-
-  <section class="row col-xs-8 col-xs-offset-2">
-    <div class="panel-group">
-      <div class="panel panel-default js-video">
+  <div class="jumbotron">
+    <div class="container-fluid col-xs-offset-1">
+      <div class="head">
+        <h2 class="header">Welcome to LoLSkinSearch!</h2>
+        <p class="subhead">Use the searchbar to discover all the available skins for your favorite champion.</p>
       </div>
     </div>
+  </div>
+
+  <section class='splash'>
+    <h3 class="skinOption">Choose a skin</h3>
+    <div class="row col-xs-9 col-xs-offset-1 col-md-offset-0">
+      <div class="navbar col-xs-12 col-xs-offset-1 col-md-offset-2">
+        <div class="boxed">
+          <div class="container-fluid">
+            <div class="row panels" id="profile-grid">
   </section>
- <!--modal youtube 
-  <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
-    <div class="modal-dialog">
+
+  <!-- modal cards -->
+  <div class="modal fade modal-profile" tabindex="-1" role="dialog" aria-labelledby="modalProfile" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" type="button" data-dismiss="modal">×</button>
+          <h3 class="modal-title"></h3>
+        </div>
         <div class="modal-body">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <div>
-            <iframe width="100%" height="350" src=""></iframe>
-          </div>
+        </div>
+        <a class="carousel-control left" href="#modal-carousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="carousel-control right" href="#modal-carousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        <div class="modal-footer">
+          <h3 class="youtubeVid">Skin Spotlight Video</h3>
         </div>
       </div>
     </div>
-  </div>-->
-<!-- modal cards -->
-	<div class="modal fade modal-profile" tabindex="-1" role="dialog" aria-labelledby="modalProfile" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button class="close" type="button" data-dismiss="modal">×</button>
-						<h3 class="modal-title"></h3>
-					</div>
-					<div class="modal-body">
-					</div>
-					<div class="modal-footer">
-						<button class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
-    <script src="app.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>
