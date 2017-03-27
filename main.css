@@ -121,6 +121,10 @@ h3.modal-title{
   cursor:pointer;
 }
 
+img.sprite{
+  cursor:pointer;
+}
+
 #profile-grid { overflow: auto; white-space: normal; }
 #profile-grid .profile { padding-bottom: 40px; }
 #profile-grid .panel { padding: 0 }
@@ -136,6 +140,7 @@ footer {
   position:fixed;
   bottom:0;
   float:left;
+  /* make it so nothing is same line as footer */
 }
 
 @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
@@ -143,4 +148,42 @@ footer {
   {
     padding-top: 45%;
   }
+}
+
+.clearfix{
+  margin-top:20px;
+}
+img.pull-left{
+  margin-right:5px;
+}
+
+h6{
+  margin-top:0px;
+  margin-bottom:0px;
+}
+
+.underneath{
+  float:left;
+  clear:both;
+  border-top: 1px solid black;
+}
+
+div.hold {
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+img.card-img-top{
+  margin-top: 5px;
+  border-radius:6px;
+  margin-bottom: 5px;
+}
+
+section.cardInfo{
+  margin-left: 15px;
+}
+
+div.championName{
+  text-align:center;
+  max-width:120px;
 }
