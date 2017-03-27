@@ -9,4 +9,4 @@ It will show the splash art for the particular skin and also a youtube video for
 ![screenshot2](https://cloud.githubusercontent.com/assets/17520488/24071607/add4f154-0b93-11e7-9e08-420ff66a69c3.png)
 
 ## Technologies 
-This was built using HTML,CSS,JavaScript and jQuery.
+This was built using HTML,CSS,JavaScript, JQuery, Bootstrap, Youtube and Riot API.
