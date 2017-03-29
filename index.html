@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>LolSkinSearch</title>
+  <title>LolChampion</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="main.css">
@@ -11,14 +11,15 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default"> 
+
+  <nav class="navbar navbar-default">
     <div class="container-fluid col-xs-offset-1">
       <div class="navbar-header col-xs-12">
-        <a class="navbar-brand col-xs-6" href="#">LoLSkinSearch</a>
+        <a class="navbar-brand col-xs-6" href="#">LolChampion</a>
         <form class="js-search-form navbar-right col-xs-6 col-xs-pull-1">
           <div class="form-group">
             <div class="input-group">
-              <input type="text" class="form-control js-query" placeholder="Search for champion">
+              <input type="text" class="form-control js-query" placeholder="Search for a champion">
               <div class="input-group-addon">
                 <i class="glyphicon glyphicon-search"></i>
               </div>
@@ -30,24 +31,26 @@
   </nav>
 
   <div class="jumbotron">
-    <div class="container-fluid col-xs-offset-1">
+    <div class="container-fluid">
       <div class="head">
-        <h2 class="header">Welcome to LoLSkinSearch!</h2>
-        <p class="subhead">Use the searchbar to discover all the available skins for your favorite champion.</p>
+        <h2 class="header">Welcome to LolChampions!</h2>
+        <p class="subhead">The League of Legends was created to protect the land of Runeterra. Each region in runeterra sent out champions as
+          representatives. Select or search a champion to find out more about the champion. </p>
       </div>
     </div>
   </div>
-  <section class = "championList">
+  <!--landing page with grid of champions -->
+  <section class="championList">
+    <h3 class="listHead">Select a champion</h3>
     <div class="character-grid-container col-xs-offset-1">
-      </div>
+    </div>
 
   </section>
 
-<section class = "cardInfo">
-  <div class = "cardContainer">
-  </div>
-</section>
-<!--landing page with grid of champions --> 
+  <section class="cardInfo">
+    <div class="cardContainer">
+    </div>
+  </section>
   <section class='splash'>
     <h3 class="skinOption">Choose a skin</h3>
     <div class="row col-xs-9 col-xs-offset-1 col-md-offset-0">
@@ -75,7 +78,8 @@
       </div>
     </div>
   </div>
-
+  <div class="preload">
+  </div>
   <!--Footer-->
   <footer>
     <a href="https://github.com/jylei/LoLSkinSearch"> Link to repo </a>
