@@ -1,4 +1,4 @@
-# LoLSkinSearch
+# LoLChampion
 
 ## Summary
 Search or select a champion and it will display all the available skins of that champion. 
