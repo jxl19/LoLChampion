@@ -87,9 +87,6 @@ div.panel-body{
   color: white;
   padding-left:15px;
 }
-div.head{
-  width:100%;
-}
 
 .textBold{
   font-weight:600;
@@ -110,6 +107,7 @@ div.head{
   vertical-align: bottom;
   line-height: normal;
   background-color:rgba(171, 171, 89, 0.56);
+  width:100%;
 }
 
 .youtubeVid{
