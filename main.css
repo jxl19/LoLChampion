@@ -87,7 +87,13 @@ div.panel-body{
   color: white;
   padding-left:15px;
 }
+div.head{
+  width:100%;
+}
 
+.textBold{
+  font-weight:600;
+}
 .carousel-control.left,.carousel-control.right{
   background-image:none;
   margin-top:10%;
@@ -103,7 +109,7 @@ div.panel-body{
   display: inline-block;
   vertical-align: bottom;
   line-height: normal;
-  background-color:rgba(171, 171, 89, 0.41);
+  background-color:rgba(171, 171, 89, 0.56);
 }
 
 .youtubeVid{
