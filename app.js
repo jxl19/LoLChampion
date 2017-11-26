@@ -1,6 +1,6 @@
 var state = {
   URL: {
-    league: "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion",
+    league: "https://global.api.pvp.net/api/lol/static-data/na/v3/champion",
     youtube: 'https://www.googleapis.com/youtube/v3/search',
   },
   splashImg: '',
@@ -11,7 +11,7 @@ var state = {
 function getDataFromLeagueApi(searchTerm, callback) {
   var query = {
     champData: 'skins,lore,blurb,info,stats,image',
-    api_key: 'RGAPI-b2ae3075-552d-4b32-bcd3-7523ec3fe407',
+    api_key: 'RGAPI-c233c6c9-e2f5-40c0-8870-342287c7ab8e',
   }
   $.getJSON(state.URL.league, query, callback);
 }
