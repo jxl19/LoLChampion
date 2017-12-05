@@ -15,7 +15,7 @@ function getDataFromLeagueApi(searchTerm, callback) {
     locale: 'en_US',
     tags: 'all',
     dataById: 'false',
-    api_key: 'RGAPI-c233c6c9-e2f5-40c0-8870-342287c7ab8e',
+    api_key: 'RGAPI-d350f317-e67a-4891-8792-dd792e4a2714',
   }
   $.getJSON(state.URL.league, query, callback);
 }
