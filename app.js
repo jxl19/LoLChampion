@@ -1,6 +1,6 @@
 var state = {
   URL: {
-    league: "https://global.api.pvp.net/api/lol/static-data/na/v3/champion",
+    league: "https://na1.api.riotgames.com/lol/static-data/v3/champions",
     youtube: 'https://www.googleapis.com/youtube/v3/search',
   },
   splashImg: '',
@@ -8,9 +8,13 @@ var state = {
   userInput: '',
 }
 
+//rate limit exceeded
+
 function getDataFromLeagueApi(searchTerm, callback) {
   var query = {
-    champData: 'skins,lore,blurb,info,stats,image',
+    locale: 'en_US',
+    tags: 'all',
+    dataById: 'false',
     api_key: 'RGAPI-c233c6c9-e2f5-40c0-8870-342287c7ab8e',
   }
   $.getJSON(state.URL.league, query, callback);
