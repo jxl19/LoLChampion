@@ -2,7 +2,7 @@ var state = {
   URL: {
     youtube: 'https://www.googleapis.com/youtube/v3/search',
     server: "https://lolchampion.herokuapp.com/champion",
-    skin: "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/"
+    skin: "https://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/"
   },
   splashImg: '',
   title: '',
