@@ -1,25 +1,22 @@
 var state = {
   URL: {
-    league: "https://na1.api.riotgames.com/lol/static-data/v3/champions",
     youtube: 'https://www.googleapis.com/youtube/v3/search',
+    server: "https://lolchampion.herokuapp.com/champion",
+    skin: "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/"
   },
   splashImg: '',
   title: '',
   userInput: '',
 }
 
-//rate limit exceeded
-
-function getDataFromLeagueApi(searchTerm, callback) {
-  var query = {
-    locale: 'en_US',
-    tags: 'all',
-    dataById: 'false',
-    api_key: 'RGAPI-d350f317-e67a-4891-8792-dd792e4a2714',
-  }
-  $.getJSON(state.URL.league, query, callback);
+function getDataFromServer(searchTerm, callback) {
+  $.getJSON(state.URL.server, searchTerm, callback);
 }
-
+function getSkinData(searchTerm, callback) {
+  searchTerm = searchTerm[0].toUpperCase() + searchTerm.slice(1);
+  let link = state.URL.skin + searchTerm + ".json";
+  $.getJSON(link, callback);
+}
 function getDataFromYoutubeApi(searchTerm, callback) {
   var query = {
     q: searchTerm,
@@ -32,29 +29,38 @@ function getDataFromYoutubeApi(searchTerm, callback) {
 }
 
 function displayChampionSprite(obj) {
+  let myObj = obj.champions[0].data;
   var grids = '';
   var arr = [];
-  for (var i in obj.data) {
-    if (i === 'Fiddlesticks') {
-      obj.data[i].key = obj.data[i].key.replace('s', 'S');
-    };
-    arr.push(obj.data[i].name);
-    arr.sort;
-    grids =
-      '<div class = "col-xs-3 col-md-2 profile"><div class = panel-panel-default"><div class = panel-thumbnail"><img class = "sprite" value = "' + obj.data[i].name + '" src = "https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/' + obj.data[i].key + '.png"></a></div></div><div class = championName>' + obj.data[i].name + '</div>';
-    $('.character-grid-container').append(grids);
-  }
+  let newArr = [];
+    for(var keys in myObj) {
+      newArr.push(keys);
+    }
+    newArr = newArr.reverse();
+    for(var i = 0; i < newArr.length; i++) {
+        arr.push(newArr[i]);
+        grids =
+          '<div class = "col-xs-3 col-md-2 profile"><div class = panel-panel-default"><div class = panel-thumbnail"><img class = "sprite" value = "' + newArr[i] + '" src = "https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/' + newArr[i]+ '.png"></a></div></div><div class = championName>' + myObj[newArr[i]].name + '</div>';
+        $('.character-grid-container').append(grids);
+      }
 }
 
 function displayChampionCard(obj) {
+  let myObj = obj.champions[0].data;
+  let newArr=[];
   $('.cardContainer').empty();
   var stats = '';
   state.userInput = ($('.js-query').val().toLowerCase());
-  for (var i in obj.data) {
-    if (obj.data[i].name.toLowerCase() === state.userInput || obj.data[i].key.toLowerCase() === state.userInput) {
-      stats += '<div class = "clearfix card"><div class = "card-container col-xs-12 col-md-6"><img class ="card-img-top pull-left" src ="https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/' + obj.data[i].key + '.png"><div class = "card-block"><h3 class = "card-title">' + obj.data[i].name + '</h3><h4 class = "card-text">' + obj.data[i].title + '</h4><div class = "stats"><p class = "col-xs-6">Health: ' + obj.data[i].stats.hp + ' (+' + obj.data[i].stats.hpperlevel + ' per level)</p><p class = "col-xs-6">Attack Damage: ' + obj.data[i].stats.attackdamage + ' (+' + obj.data[i].stats.attackdamageperlevel + ' per level)</p><p class = "col-xs-6">Movement Speed: ' + obj.data[i].stats.movespeed + '</p><p class = "col-xs-6">Health Regen: ' + obj.data[i].stats.hpregen + ' (+' + obj.data[i].stats.hpregenperlevel + ' per level)</p><p class = "col-xs-6">Armor: ' + obj.data[i].stats.armor + ' (+' + obj.data[i].stats.armorperlevel + ' per level)</p><p class = "col-xs-6">Magic Resist: ' + obj.data[i].stats.spellblock + ' (+' + obj.data[i].stats.spellblockperlevel + ' per level)</p></div></div></div><div class = "loreContainer col-xs-12 col-md-6"><h3 class = "loretitle">Lore</h3><h5>' + obj.data[i].lore + '</h5></div></div>';
-    }
+  for(var keys in myObj) {
+    newArr.push(keys);
   }
+  newArr = newArr.reverse();
+  for(var i = 0; i < newArr.length; i++) {
+    let info = myObj[newArr[i]];
+    if(newArr[i].toLowerCase() === state.userInput){
+      stats += '<div class = "clearfix card"><div class = "card-container col-xs-12 col-md-6"><img class ="card-img-top pull-left" src ="https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/' + newArr[i] + '.png"><div class = "card-block"><h3 class = "card-title">' + info.name + '</h3><h4 class = "card-text">' + info.title + '</h4><div class = "stats"><p class = "col-xs-6">Health: ' + info.stats.hp + ' (+' + info.stats.hpperlevel + ' per level)</p><p class = "col-xs-6">Attack Damage: ' + info.stats.attackdamage + ' (+' + info.stats.attackdamageperlevel + ' per level)</p><p class = "col-xs-6">Movement Speed: ' + info.stats.movespeed + '</p><p class = "col-xs-6">Health Regen: ' + info.stats.hpregen + ' (+' + info.stats.hpregenperlevel + ' per level)</p><p class = "col-xs-6">Armor: ' + info.stats.armor + ' (+' + info.stats.armorperlevel + ' per level)</p><p class = "col-xs-6">Magic Resist: ' + info.stats.spellblock + ' (+' + info.stats.spellblockperlevel + ' per level)</p></div></div></div><div class = "loreContainer col-xs-12 col-md-6"><h3 class = "loretitle">Lore</h3><h5>' + info.blurb + '</h5></div></div>';
+    } 
+    }
   $('.cardContainer').append(stats);
 }
 
@@ -62,13 +68,12 @@ function displaySkinName(obj) { //using userinput to search for champion to disp
   var cardElement = '';
   state.userInput = ($('.js-query').val().toLowerCase());
   for (var i in obj.data) {
-    if (obj.data[i].name.toLowerCase() === state.userInput || obj.data[i].key.toLowerCase() === state.userInput) {
+      //started at 1 bc 0 is default skin
       for (var y = 1; y < obj.data[i].skins.length; y++) {
         cardElement +=
-          '<div class = "col-md-3 col-xs-12 profile"><div class = "panel panel-default"><div class="panel-thumbnail"><a href= "#" title ="' + obj.data[i].skins[y].name + '" class ="thumb" value=' + y + '><img src = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + obj.data[i].key + '_' + obj.data[i].skins[y].num + '.jpg" value =' + y + ' class = "img-responsive img-rounded splash" data-toggle ="modal" data-target = ".modal-profile-lg"></a></div><div class = "panel-body"><p class ="profile-name" value =' + y + '>' + obj.data[i].skins[y].name + '</p></div></div></div>';
+          '<div class = "col-md-3 col-xs-12 profile"><div class = "panel panel-default"><div class="panel-thumbnail"><a href= "#" title ="' + obj.data[i].skins[y].name + '" class ="thumb" value=' + y + '><img src = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + i + '_' + obj.data[i].skins[y].num + '.jpg" value =' + y + ' class = "img-responsive img-rounded splash" data-toggle ="modal" data-target = ".modal-profile-lg"></a></div><div class = "panel-body"><p class ="profile-name" value =' + y + '>' + obj.data[i].skins[y].name + '</p></div></div></div>';
       }
     }
-  }
   $('div.panels').html(cardElement);
 }
 
@@ -152,10 +157,14 @@ function watchSubmit() {
       $(this).hide();
     });
     $('.splash').show();
-    getDataFromLeagueApi($(this).find('.js-query').val(), displaySkinName);
-    getDataFromLeagueApi($(this).find('.js-query').val(), displayChampionCard);
+    getSkinData(($('.js-query').val()), displaySkinName);
+    getDataFromServer($(this).find('.js-query').val(), displayChampionCard);
   });
 }
+
+//we need to grab user input, find a champion with that name from the server, then serve it back to the function to serve to the client
+
+//before we were grabbing on click directly to serve it since we have data
 
 $('.js-search-form').on('keyup', '.js-query', function (e) {
   e.preventDefault();
@@ -202,8 +211,8 @@ $('.championList').on('click', '.sprite', function (e) { //event listener for sp
     $(this).hide();
   });
   $('.splash').show();
-  getDataFromLeagueApi($(this).find('.js-query').val(), displaySkinName);
-  getDataFromLeagueApi($(this).find('.js-query').val(), displayChampionCard);
+  getSkinData(($('.js-query').val()), displaySkinName);
+  getDataFromServer($(this).find('.js-query').val(), displayChampionCard);
 });
 
 $body = $("body");
@@ -217,8 +226,28 @@ $(document).on({
   }
 });
 
+function getJson(myid, callback) {
+  // Set the headers
+  var api_key = 'RGAPI-2ae7140c-6dc7-4da7-b6f1-91c94357fd41';
+  var options = {
+    url: `https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&tags=format&dataById=false&api_key=${api_key}`,
+    method: 'GET',
+    json: true
+  }
+
+  // Start the request
+  request(options, function (error, response, body) {
+    ;
+    if (!error && response.statusCode == 200) {
+      callback(body);
+    }
+    else
+      console.log("error:" + error);
+  })
+}
+
 $(document).ready(function () {
-  getDataFromLeagueApi(state.userInput, displayChampionSprite);
+  getDataFromServer(state.userInput, displayChampionSprite);
 });
 
 watchSubmit();
